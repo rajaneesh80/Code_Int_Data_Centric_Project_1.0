@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div>
+
+ <h2> Hello World from Index.html </h2>
+
+ </div>
+
+
+ <header id="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto text-center">
+          <h1> Raj Recipe World </h1>
+          <p> <h2> Welcome to Raj Recipe World </h2> </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <hr>
+<!--
+  <div class="jumbotron">
+    <h1>Recipe Company Blog</h1>
+    <p>Welcome to Raj Recipe World</p>
+  </div>
+-->
+
+<section id="info" class="py-3">
+  <div class="container">
+    {# Go through each blog post #}
+
+    {% for recipe in all_recipies_posts.items %}
+
+    <div class="row">
+
+      <div class="col-md-9 align-self-center">
+
+        <h3> <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id=recipe.id) }}">{{ recipe.recipe_name }}</a> </h3>
+
+          <p>
+
+            Written by: <a href="{{ url_for('users.user_recipies', username = recipe.author.username) }}">{{ recipe.author.username }}</a>
+
+            <br/>
+
+            Published on: {{ recipe.date.strftime('%Y-%m-%d') }}
+            <br/>
+
+            {{ recipe.recipe_description[:100] }}...
+
+            </p>
+
+              <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id=recipe.id) }}" class="btn btn-outline-danger btn-lg">Read more</a>
+
+              <hr>
+               <br/>
+                
+
+          </div>
+
+            <div class="col-md-3">
+              <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}"> <img src="{{recipe.recipe_image}}" alt="" class="img-fluid"> </a>
+             </div>
+
+           </div>
+           {% endfor %}
+         </div> <!-- container -->
+       </section>
+
+{% endblock %}
