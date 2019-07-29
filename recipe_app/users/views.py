@@ -19,13 +19,12 @@ def register():
     if form.validate_on_submit():
         user = User(email=form.email.data,
                     username=form.username.data,
-                    #picture=form.picture.data,
                     password=form.password.data
                     )
 
         db.session.add(user)
         db.session.commit()
-        flash('Thanks for registration!')
+        flash(f'Account created for {form.username.data}!', 'success')
         return redirect(url_for('users.login'))
 
     return render_template('register.html', form=form)
@@ -44,7 +43,7 @@ def login():
         if user.check_password(form.password.data) and user is not None:
 
             login_user(user)
-            flash('Log in Success!')
+            flash('You have been logged in!', 'success')
 
             next = request.args.get('next')
 
@@ -52,6 +51,7 @@ def login():
                 next = url_for('core.index')
 
             return redirect(next)
+        else:flash('Login Unsuccessful. Please check username and password', 'danger')
 
     return render_template('login.html',form=form)
 
