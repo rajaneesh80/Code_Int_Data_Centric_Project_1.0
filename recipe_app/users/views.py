@@ -60,6 +60,7 @@ def login():
 @users.route("/logout")
 def logout():
     logout_user()
+    flash('You have been logged Out!', 'success')
     return redirect(url_for("core.index"))
 
 
@@ -92,6 +93,9 @@ def account():
 
     #profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
     return render_template('account.html', form=form)
+
+
+# gt all the recipe of user
 
 @users.route("/<username>")
 def user_recipies(username):
