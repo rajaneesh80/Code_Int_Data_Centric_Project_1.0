@@ -1,3 +1,5 @@
+#Recipe Form 
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
@@ -27,4 +29,4 @@ class RecipePostForm(FlaskForm):
     ##########################
     ingredients = TextAreaField('Ingredients', validators=[DataRequired()])
     recipe_description = TextAreaField('Recipe_Description', validators=[DataRequired()])
-    submit = SubmitField('Receipe')
+    submit = SubmitField('Post-Your-Receipe')

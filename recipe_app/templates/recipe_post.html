@@ -72,10 +72,10 @@
 
             <div class="col-md-12 bg-dark">
               <h3> Ingredients </h3>
-              <br>
+             
                 <div>
 
-                  {{recipe.ingredients}}
+                  <pre class="text-danger"> {{recipe.ingredients}} </pre>
 
                </div>
 
@@ -90,7 +90,13 @@
       <div class="row">
 
             <div class="col-md-12 bg-dark">
-              <h3> Recipe Description </h3> {{recipe.recipe_description}}
+
+              <h3> Recipe Description </h3> 
+              
+              <div>
+
+              <pre class="text-danger">  {{recipe.recipe_description}} </pre>
+
             </div>
 
         </div>

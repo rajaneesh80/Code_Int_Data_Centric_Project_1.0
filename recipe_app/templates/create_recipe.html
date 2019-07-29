@@ -10,7 +10,7 @@
      
      {{ form.recipe_image.label(class="form-control-label") }}
 
-     {{ form.recipe_image(class="form-control form-control-lg ")}}
+     {{ form.recipe_image(class="form-control form-control-lg btn btn-outline-success")}}
 
      </div>
 
@@ -18,65 +18,68 @@
 
      <div class="form-group">
      {{ form.recipe_name.label(class="form-control-label") }}
-     {{ form.recipe_name(class="form-control form-control-lg ") }}
+     {{ form.recipe_name(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <div class="form-group">
-
      {{ form.course.label(class="form-control-label") }}
-          
-
-     {{ form.course(class="form-control form-control-lg ") }}
+     {{ form.course(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.food_category.label(class="form-control-label") }}
-     {{ form.food_category(class="form-control form-control-lg ") }}
+     {{ form.food_category(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.cuisine.label(class="form-control-label") }}
-     {{ form.cuisine(class="form-control form-control-lg ") }}
+     {{ form.cuisine(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.prep_time.label(class="form-control-label") }}
-     {{ form.prep_time(class="form-control form-control-lg ") }}
+     {{ form.prep_time(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.cook_time.label(class="form-control-label") }}
-     {{ form.cook_time(class="form-control form-control-lg ") }}
+     {{ form.cook_time(class="form-control form-control-lg border border-success ") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.allergens.label(class="form-control-label") }}
-     {{ form.allergens(class="form-control form-control-lg ") }}
+     {{ form.allergens(class="form-control form-control-lg border border-success") }}
      </div>
      <!-- -->
      <!-- -->
      <div class="form-group">
      {{ form.serving.label(class="form-control-label") }}
-     {{ form.serving(class="form-control form-control-lg ") }}
+     {{ form.serving(class="form-control form-control-lg border border-success") }}
      </div>
-     <!--                                                  -->
+
+     <!--   -->
+
+                                                
      <div class="form-group">
-     {{ form.ingredients.label(class="form-control-label") }}
-     {{ form.ingredients(class="form-control form-control-lg") }}
+
+     {{ form.ingredients.label(class="text-danger form-control-label") }}
+     {{ form.ingredients(rows="8",class="form-control form-control-lg border border-success") }} 
+     </div>
+
+     
+
+     <div class="form-group">
+     {{ form.recipe_description.label(class=" text-danger form-control-label") }}
+     {{ form.recipe_description(rows="9",class="form-control form-control-lg border border-success") }}
      </div>
 
      <div class="form-group">
-     {{ form.recipe_description.label(class="form-control-label") }}
-     {{ form.recipe_description(class="form-control form-control-lg") }}
-     </div>
-
-     <div class="form-group">
-         {{ form.submit(class="btn btn-outline-info") }}
+         {{ form.submit(class="btn btn-outline-success") }}
      </div>
   </form>
 
