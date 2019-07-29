@@ -1,9 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-  <!--############################################################## -->
+<!--############################################################## -->
 
   <section id="" class="text-center text-white">
     <div class="container">
@@ -103,25 +101,23 @@
 
 
 
-<div>
-   {% if recipe.author == current_user %}
-     <div>
+        <div>
+           {% if recipe.author == current_user %}
+             <div>
 
-       <a class="btn btn-secondary" href="{{ url_for('recipe_posts.update', recipe_post_id=recipe.id) }}">Update</a>
+               <a class="btn btn-secondary" href="{{ url_for('recipe_posts.update', recipe_post_id=recipe.id) }}">Update</a>
 
-       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button>
+               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete</button>
 
-     </div>
-   {% endif %}
-</div>
+             </div>
+           {% endif %}
+        </div>
 
 
 
 
   
-  {# https://getbootstrap.com/docs/4.1/components/modal/ #}
-  {# Notice how the link with the id to the button above! #}
-
+<!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> 
   <div class="modal" tabindex="-1" role="dialog" id="del_modal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -144,7 +140,8 @@
       </div>
     </div>
   </div>
-
+<!-- --> <!-- --> <!-- --> <!-- --> <!-- --> <!-- --> 
  <hr>
 
 {% endblock content %}
+<!--############################################################## -->
