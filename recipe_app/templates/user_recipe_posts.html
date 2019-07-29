@@ -10,7 +10,11 @@
 
     </div>
   </div>
+
 <!-- -->
+<!-- --> <!-- --> <!-- --><!-- --> <!-- --> <!-- -->
+<!-- --> <!-- --> <!-- --> <!-- --> <!-- --><!-- -->
+
 <section id="" class="py-3">
   <div class="container">
     <div class="row py-1">
@@ -60,11 +64,52 @@
 </section>
 <hr>
 <!-- -->
+<!-- --> <!-- --> <!-- --><!-- --> <!-- --> <!-- -->
+<!-- --> <!-- --> <!-- --> <!-- --> <!-- --><!-- -->
+    <div>
+  
+    {% for recipe in recipies_posted.items %}
+
+    <div class="modal" tabindex="-1" role="dialog" id="del_modal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Recipe </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete your <strong class="text-danger"> recipe post ???strong> </p>
+        </div>
+        
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
+          <form action="{{ url_for('recipe_posts.delete_recipe', recipe_post_id=recipe.id) }}" method="POST">
+            <input class="btn btn-danger" type="submit" value="Delete">
+          </form>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  
+   {% endfor %}
+</div>
+
+<!-- --> <!-- --> <!-- --><!-- --> <!-- --> <!-- -->
+<!-- --> <!-- --> <!-- --> <!-- --> <!-- --><!-- -->
+
+
 
 <!-- -->
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-    
+
     {# http://flask.pocoo.org/snippets/44/ #}
 
     {% for page_num in recipies_posted.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}

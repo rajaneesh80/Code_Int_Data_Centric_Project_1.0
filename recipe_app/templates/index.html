@@ -1,31 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
- <div>
+<!-- -->   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
 
- <h2> Hello World from Index.html </h2>
-
- </div>
-
-
- <header id="page-header">
+<header id="page-header">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 m-auto text-center">
-          <h1> Raj Recipe World </h1>
-          <p> <h2> Welcome to Raj Recipe World </h2> </p>
+        <div class="col-md-12 m-auto text-center">
+          <h1 class = "text-primary"> Raj Recipe World </h1>
+          <p> <h2 class = "text-secondar"> Welcome to Raj Recipe World </h2> </p>
         </div>
       </div>
     </div>
   </header>
 
   <hr>
-<!--
-  <div class="jumbotron">
-    <h1>Recipe Company Blog</h1>
-    <p>Welcome to Raj Recipe World</p>
-  </div>
--->
+
+<!-- -->   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
 
 <section id="info" class="py-3">
   <div class="container">
@@ -65,8 +56,45 @@
              </div>
 
            </div>
+
            {% endfor %}
          </div> <!-- container -->
        </section>
 
+
+
+<!-- -->   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+
+    {# http://flask.pocoo.org/snippets/44/ #}
+
+    {% for page_num in all_recipies_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+
+            {% if all_recipies_posts.page == page_num %}
+
+              <li class="page-item disabled">
+
+                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a>
+
+              </li>
+             
+
+            {% else %}
+
+              <li class="page-item"> 
+
+                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a>
+
+              </li>
+            {% endif %}
+
+    {% endfor %}
+  </ul>
+</nav>
+ <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
 {% endblock %}
+  <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
+   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
+    <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
+    <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
