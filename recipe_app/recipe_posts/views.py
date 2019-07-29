@@ -44,7 +44,7 @@ def create_recipe():
 # int: makes sure that the recipe_post_id gets passed as in integer
 # instead of a string so we can look it up later.
 
-#read or view the Recipe details
+#read or view the Single Recipe Details
 @recipe_posts.route('/<int:recipe_post_id>')
 def recipe_post(recipe_post_id):
     # grab the requested recipe post by id number or return 404

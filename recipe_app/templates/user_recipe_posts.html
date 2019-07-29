@@ -1,51 +1,89 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container">
+<!-- -->
   <div class="jumbotron">
     <div align='center'>
       <h1 >Welcome to the page for {{user.username}}</h1>
-      <!--
-      <img align='center' src="{{ url_for('static', filename='profile_pics/' + user.picture) }}">
-      
-      -->
+
       <img align='center' src="{{ (user.picture) }}">
 
     </div>
-    </div>
+  </div>
+<!-- -->
+<section id="" class="py-3">
+  <div class="container">
+    <div class="row py-1">
 
-<br/>
-<br/>
+ 
+      {% for recipe in recipies_posted.items %}
 
-{% for recipe in recipies_posted.items %}
 
- <h2><a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}">{{ recipe.title }}</a></h2>
+      <!-- -->
+      <div class="col-md-8 align-self-center mt-4">
 
-  Written by: <a href="{{ url_for('users.user_recipies', username = recipe.author.username) }}">{{ recipe.author.username }}</a>
+         <h2><a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}">{{ recipe.recipe_name }}</a></h2>
 
-  <p class="text-muted">Published on: {{ recipe.date.strftime('%Y-%m-%d') }}</p>
+          Written by: <a href="{{ url_for('users.user_recipies', username = recipe.author.username) }}">{{ recipe.author.username }}</a>
 
-  <br>
+          <p class="text-muted">Published on: {{ recipe.date.strftime('%Y-%m-%d') }}</p>
 
-  <p> {{recipe.text}}</p>
+          <p>{{ recipe.recipe_description[:100] }}...</p>
 
- <br>
-{% endfor %}
-</div> <!-- container -->
+          <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}" class="btn btn-outline-danger btn-lg">Read more</a>
+              
+            {% if recipe.author == current_user %}
 
+              <a class="btn btn-secondary" href="{{ url_for('recipe_posts.update', recipe_post_id = recipe.id) }}">Update</a>
+
+               <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#del_modal">Delete </button>
+              
+                <hr>
+
+            {% endif %}
+
+      </div>  <!--col-md-8 -->
+
+      <!-- -->
+
+      <!-- -->
+        <div class="col-md-4 py-2">
+          <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}"> <img src="{{recipe.recipe_image}}" alt="" class="img-fluid"> </a>
+
+        </div>
+      <!-- -->
+
+      {% endfor %}
+
+    </div> <!-- row -->
+  </div> <!-- container-->
+</section>
+<hr>
+<!-- -->
+
+<!-- -->
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
+    
     {# http://flask.pocoo.org/snippets/44/ #}
 
     {% for page_num in recipies_posted.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+
             {% if recipies_posted.page == page_num %}
               <li class="page-item disabled">
-                <a class="page-link" href="{{ url_for('users.user_recipies', username=user.username, page=page_num) }}">{{ page_num }}</a></li>
+                <a class="page-link" href="{{ url_for('users.user_recipies', username=user.username, page=page_num) }}">{{ page_num }}</a>
               </li>
+             
+
             {% else %}
-              <li class="page-item"><a class="page-link" href="{{ url_for('users.user_recipies', username=user.username, page=page_num) }}">{{ page_num }}</a></li>
+
+              <li class="page-item"> <a class="page-link" href="{{ url_for('users.user_recipies', username=user.username, page=page_num) }}">{{ page_num }}</a>
+              </li>
             {% endif %}
+
     {% endfor %}
+  </ul>
 </nav>
+<!-- -->
 
 {% endblock content %}
