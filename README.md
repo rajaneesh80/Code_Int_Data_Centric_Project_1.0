@@ -79,17 +79,19 @@ other Front end languages that give the application structure, style and interac
 
 
 <ul>
-<li><a href="https://www.python.org/" rel="nofollow">Python-Version 3.7.3/a>
+<li><a href="https://www.python.org/" rel="nofollow">Python-Version 3.7.3</a>
 <ul>
 <li>The project uses <strong>Python</strong> for backend development.</li>
+</ul>
+</li>
 
 <ul>
-<li><a href="https://pypi.org/project/Flask/" rel="nofollow">Flask-Version 1.1.0/a>
+<li><a href="https://pypi.org/project/Flask/" rel="nofollow">Flask-Version 1.1.0</a>
 <ul>
 <li>The project uses <strong>Flask</strong> for backend development.</li>
 
 <ul>
-<li><a href="https://www.sqlite.org/download.html" rel="nofollow">SQLite/a>
+<li><a href="https://www.sqlite.org/download.html" rel="nofollow">SQLite</a>
 <ul>
 <li>The project uses <strong>SQLite</strong> SQL database to store the data from user</li>
 
@@ -99,6 +101,7 @@ other Front end languages that give the application structure, style and interac
 <li>The project uses <strong>Bootstrap</strong> to speed up the development.</li>
 
 </ul>
+
 </li>
 <li><a href="https://fontawesome.com/" rel="nofollow">Font Awesome v5.3.1</a>
 <ul>
