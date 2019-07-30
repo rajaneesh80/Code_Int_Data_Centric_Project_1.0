@@ -89,11 +89,15 @@ other Front end languages that give the application structure, style and interac
 <li><a href="https://pypi.org/project/Flask/" rel="nofollow">Flask-Version 1.1.0</a>
 <ul>
 <li>The project uses <strong>Flask</strong> for backend development.</li>
+</ul>
+</li>
 
 <ul>
 <li><a href="https://www.sqlite.org/download.html" rel="nofollow">SQLite</a>
 <ul>
 <li>The project uses <strong>SQLite</strong> SQL database to store the data from user</li>
+</ul>
+</li>
 
 <ul>
 <li><a href="https://getbootstrap.com/docs/4.3/getting-started/introduction/" rel="nofollow">Bootstrap v4.1.3</a>
