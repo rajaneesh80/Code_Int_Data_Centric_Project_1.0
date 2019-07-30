@@ -23,7 +23,7 @@
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
     	<fieldset class="form-group">
-                <legend class="border-bottom mb-4">Join Today</legend>
+                <legend class="border-bottom mb-4 text-center">Join Today</legend>
                 <div class="form-group">
                     {{ form.username.label(class="form-control-label") }}
 
@@ -84,7 +84,7 @@
 
             	  <div class="border-top pt-3">
         			<small class="text-muted">
-            		Already Have An Account? <a class="ml-2" href="{{ url_for('users.login') }}">Sign In</a>
+            		Already Have An Account? <a class="ml-2" href="{{url_for('users.login')}}"><h4 class="btn btn-outline-success"> Sign In </h4></a>
         			</small>
     			</div>
 </form>
