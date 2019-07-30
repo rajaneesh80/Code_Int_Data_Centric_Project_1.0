@@ -76,14 +76,19 @@ def account():
         if form.picture.has_file():
             image_url = fhotos.url(fhotos.save(form.picture.data))
             current_user.picture = image_url
+            if current_user.picture is not None and current_user.picture != image_url:
+                flash("User picture updated")
         else:
-            #image_url = "C:/flaskenv/rajip1.2/myapp/static/profile_pics/default_profile.png"
             image_url = current_user.picture
         ##############################################################
         current_user.username = form.username.data
+        if current_user.username is not None and current_user.username != form.username.data:
+            flash("User name updated")
         current_user.email = form.email.data
+        if current_user.email is not None and current_user.email != form.email.data:
+            flash("User email updated")
         db.session.commit()
-        flash('User Account Updated')
+        flash('Your Account Updated')
         return redirect(url_for('users.account'))
 
     elif request.method == 'GET':

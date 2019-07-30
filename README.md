@@ -7,7 +7,7 @@ Raj Recipe Cook Book Web_App is a responsive multi-pages scoal cooking blog app 
 
 A web application created in Python and Flask.
 
-<h2> UX </h2> 
+<h2> UX </h2>
 
 This website was created with the intention to store and share recipes with other users. 
 
@@ -184,7 +184,7 @@ Rajaneesh Singh Bhadauria - This project was completed as part of Code Institute
 
 <ul>
 
-<li> I dont cook much at home inspired me to make a tool to remeber the recipies </li>
+<li> I don't cook much at home inspired me to make a tool to remeber the recipies </li>
 
 </ul>
 
