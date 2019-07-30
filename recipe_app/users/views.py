@@ -75,28 +75,33 @@ def account():
         ####################################################################
         if form.picture.has_file():
             image_url = fhotos.url(fhotos.save(form.picture.data))
-            current_user.picture = image_url
+            #current_user.picture = image_url
             if current_user.picture is not None and current_user.picture != image_url:
                 flash("User picture updated")
+            current_user.picture = image_url
         else:
             image_url = current_user.picture
         ##############################################################
-        current_user.username = form.username.data
+        
         if current_user.username is not None and current_user.username != form.username.data:
             flash("User name updated")
-        current_user.email = form.email.data
+        current_user.username = form.username.data
+        
+        ##############################################################
+        #current_user.email = form.email.data
         if current_user.email is not None and current_user.email != form.email.data:
             flash("User email updated")
+        current_user.email = form.email.data
+
+        ##############################################################
         db.session.commit()
-        flash('Your Account Updated')
+        flash('User Account Updated')
         return redirect(url_for('users.account'))
+        ##############################################################
 
     elif request.method == 'GET':
-        #form.picture.data = current_user.picture
         form.username.data = current_user.username
         form.email.data = current_user.email
-
-    #profile_image = url_for('static', filename='profile_pics/' + current_user.profile_image)
     return render_template('account.html', form=form)
 
 
