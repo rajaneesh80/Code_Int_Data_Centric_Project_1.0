@@ -18,7 +18,7 @@
 
 </div>
 <!-- Error Flash Message End -->
-
+<div class="container">
 <form method="POST" action="">
     {# This hidden_tag is a CSRF security feature. #}
     {{ form.hidden_tag() }}
@@ -88,4 +88,5 @@
         			</small>
     			</div>
 </form>
+</div>
 {% endblock %}
