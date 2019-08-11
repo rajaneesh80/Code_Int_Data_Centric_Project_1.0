@@ -7,7 +7,7 @@ from wtforms import ValidationError
 from flask_wtf.file import FileField, FileAllowed
 
 #reated to images
-from recipe_app import fhotos
+#from recipe_app import fhotos
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 
 #reated to user

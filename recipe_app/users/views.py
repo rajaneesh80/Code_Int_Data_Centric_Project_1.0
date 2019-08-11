@@ -3,10 +3,13 @@
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from recipe_app import db
-from recipe_app import fhotos
+from recipe_app import app
+#from recipe_app import fhotos
 from recipe_app.models import User, RecipePost
 from recipe_app.users.forms import RegistrationForm, LoginForm, UpdateUserForm
 from werkzeug import FileStorage
+from werkzeug.utils import secure_filename
+from recipe_app.tools import upload_file_to_s3, list_files_in_s3, delete_file_from_s3
 
 
 users = Blueprint('users', __name__)
@@ -74,7 +77,15 @@ def account():
     if form.validate_on_submit():
         ####################################################################
         if form.picture.has_file():
-            image_url = fhotos.url(fhotos.save(form.picture.data))
+
+            #############################
+            file            = request.files["picture"]
+            output          = upload_file_to_s3(file, app.config["S3_BUCKET"])
+            filename        = file.filename
+            image_url       = str(output)
+            ###########################
+
+            #image_url = fhotos.url(fhotos.save(form.picture.data))
             #current_user.picture = image_url
             if current_user.picture is not None and current_user.picture != image_url:
                 flash("User picture updated")

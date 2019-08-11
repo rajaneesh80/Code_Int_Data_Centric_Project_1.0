@@ -1,32 +1,44 @@
 #main __init__
 import os
+#import boto3
 from flask import Flask, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-from flask_uploads import UploadSet, configure_uploads, IMAGES
+#from flask_uploads import UploadSet, configure_uploads, IMAGES
 
+from config import Config
 
 app = Flask(__name__)
 
-photos = UploadSet('photos', IMAGES)
-fhotos = UploadSet('fhotos', IMAGES)
+app.config.from_object(Config)
+
+# photos = UploadSet('photos', IMAGES)
+# fhotos = UploadSet('fhotos', IMAGES)
 
 # set SECRET_KEY=mysecret
 
-app.config['SECRET_KEY'] = 'mysecret'
+#app.config['SECRET_KEY'] = 'mysecret'
 
 ### DATABASE SETUPS ############
 
 basedir = os.path.abspath(os.path.dirname(__file__))
+TOP_LEVEL_DIR = os.path.abspath(os.curdir)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['UPLOADED_FHOTOS_DEST'] = 'C:/Code_Int_Data_Centric_Project/recipe_app/static/profile_pics'
-app.config['UPLOADED_PHOTOS_DEST'] = 'C:/Code_Int_Data_Centric_Project/recipe_app/static/recipe_images'
-#app.config['UPLOADED_FHOTOS_DEST'] = os.path.join(basedir, 'static\profile_pics')
-#app.config['UPLOADED_PHOTOS_DEST'] = os.path.join(basedir, 'static\recipe_images')
-configure_uploads(app, photos)
-configure_uploads(app, fhotos)
+
+###### image ##############################
+
+# app.config['UPLOADED_FHOTOS_DEST'] = 'C:/Code_Int_Data_Centric_Project/recipe_app/static/profile_pics'
+# app.config['UPLOADED_PHOTOS_DEST'] = 'C:/Code_Int_Data_Centric_Project/recipe_app/static/recipe_images'
+
+############### image end #################
+
+# configure_uploads(app, photos)
+# configure_uploads(app, fhotos)
+
+######### db ###################
+
 db = SQLAlchemy(app)
 Migrate(app,db)
 

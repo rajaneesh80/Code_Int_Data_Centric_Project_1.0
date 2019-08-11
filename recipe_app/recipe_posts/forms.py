@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-from recipe_app import photos
+#from recipe_app import photos
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 #from werkzeug import secure_filename, FileStorage
 

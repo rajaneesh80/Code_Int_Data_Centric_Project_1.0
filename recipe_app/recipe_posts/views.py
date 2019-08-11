@@ -1,12 +1,15 @@
 #Views Blog_Post
-
+import os
 from flask import render_template,url_for,flash, redirect,request,Blueprint
 from flask_login import current_user, login_required
 from recipe_app import db
-from recipe_app import photos
+from recipe_app import app
+#from recipe_app import photos
 from recipe_app.models import RecipePost
 from recipe_app.recipe_posts.forms import RecipePostForm
 from werkzeug import FileStorage
+from werkzeug.utils import secure_filename
+from recipe_app.tools import upload_file_to_s3, list_files_in_s3, delete_file_from_s3
 
 recipe_posts = Blueprint('recipe_posts',__name__)
 
@@ -16,8 +19,24 @@ def create_recipe():
     form = RecipePostForm()
 
     if form.validate_on_submit():
+
+        #########################
+
+        file            = request.files["recipe_image"]
+        output          = upload_file_to_s3(file, app.config["S3_BUCKET"])
+        filename        = file.filename
+        image_url       = str(output)
+
+        ##################################
+
+
+
+
+        #########################
         #filename = photos.save(request.files['recipe_image'])
-        image_url = photos.url(photos.save(form.recipe_image.data))
+        #image_url = photos.url(photos.save(form.recipe_image.data))
+        #image_url = photos.url('https://s3.console.aws.amazon.com/s3/buckets/rajecom/recipe_images')
+        ############################
         recipe_post = RecipePost(recipe_image = image_url,
                              ########################
                              recipe_name=form.recipe_name.data,
@@ -64,10 +83,17 @@ def update(recipe_post_id):
 
     form = RecipePostForm()
 
-
     if form.validate_on_submit():
         if form.recipe_image.has_file():
-            image_url = photos.url(photos.save(form.recipe_image.data))
+
+            #############################
+            file            = request.files["recipe_image"]
+            output          = upload_file_to_s3(file, app.config["S3_BUCKET"])
+            filename        = file.filename
+            image_url       = str(output)
+            ###########################
+            
+            #image_url = photos.url(photos.save(form.recipe_image.data))
             recipe_post.recipe_image = image_url
         else:
             image_url = recipe_post.recipe_image
