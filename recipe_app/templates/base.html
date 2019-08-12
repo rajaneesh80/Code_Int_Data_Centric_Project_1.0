@@ -1,22 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
       <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/master.css') }}"/>
 
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
       integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css" />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" />
+
   <meta charset="utf-8">
+
     <title> Raj Recipe World</title>
+
   </head>
 
 <body>
@@ -26,7 +32,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-info fixed-top ">
     <div class="container">
 
-      <a href="{{ url_for('core.index') }}" target="_blank" class="navbar-brand">Recipe World</a>
+      <a href="{{ url_for('core.index') }}" target="_blank" class="navbar-brand"> <i class="fas fa-utensils icon-nav"></i> Recipe World</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
       <span class="navbar-toggler-icon"></span> </button>
 
@@ -35,11 +41,13 @@
          <ul class="navbar-nav ml-auto">
 
             <li class="nav-item active">
-              <a class="nav-link text-white" href="{{ url_for('core.index') }}">Home</a>
+              <a class="nav-link text-white" href="{{ url_for('core.index') }}">
+                <i class="fas fa-home icon-nav"> Home </i>
+              </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link text-white" href="{{ url_for('core.info') }}">About Us</a>
+              <a class="nav-link text-white" href="{{ url_for('core.info') }}"> <i class="fas fa-users icon-nav"></i> About Us</a>
             </li>
 
         <!-- -->
@@ -47,30 +55,42 @@
             {% if current_user.is_authenticated %}
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ url_for('users.logout') }}">Log Out</a>
+                <a class="nav-link text-white" href="{{ url_for('users.logout') }}"> <i class="fas fa-sign-out-alt icon-nav"></i> Log Out </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ url_for('users.account') }}">Account</a>
+                <a class="nav-link text-white" href="{{ url_for('users.account') }}">
+                  <i class="fas fa-user icon-nav"> </i> Profile </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ url_for('recipe_posts.create_recipe') }}">Add Recipe</a>
+                <a class="nav-link text-white" href="{{ url_for('recipe_posts.create_recipe') }}">
+                  <i class="fas fa-plus icon-nav"></i> Add Recipe</a>
             </li>
 
              <li class="nav-item"> 
-                <a class="nav-link text-white" href="{{ url_for('users.user_recipies' , username=current_user.username) }}">{{ current_user }}</a>
+                <a class="nav-link text-white" href="{{ url_for('users.user_recipies' , username=current_user.username) }}"> <i class="fas fa-user-circle icon-nav"> </i> {{ current_user }} </a>
               </li>
 
 
               {% else %}
 
               <li class="nav-item">
-                  <a class="nav-link text-white" href="{{ url_for('users.login') }}"> Log In </a>
+                  <a class="nav-link text-white" href="{{ url_for('users.login') }}"> <i class="fas fa-sign-in-alt icon-nav"></i> Log In </a>
               </li>
 
+              <!--
               <li class="nav-item">
-                  <a class="nav-link text-white" href="{{ url_for('users.register') }}"> Register </a>
+                  <a class="nav-link text-white btn btn-info btn-md" href="{{ url_for('users.register') }}"> <span class="glyphicon glyphicon-text-background"></span> Register </a>
+              </li>
+              -->
+              
+              <li class="nav-item">
+
+                  <a href="{{ url_for('users.register') }}" class="btn btn-info btn-md">
+                  <span class="glyphicon glyphicon-text-background"></span> Register
+                </a>
+
               </li>
 
               {% endif %}
@@ -108,6 +128,15 @@
               </div>
             </div>
           </footer>
+
+
+    <!-- -->    <!-- -->    <!-- -->    <!-- -->    <!-- --> 
+
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   </body>
 </html>
