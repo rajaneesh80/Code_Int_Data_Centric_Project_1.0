@@ -20,6 +20,14 @@ class LoginForm(FlaskForm):
     remember = BooleanField('Remember Me')
     submit = SubmitField('Log In')
 
+    def check_email(self, field):
+        if User.query.filter_by(email=field.data).first():
+            raise ValidationError('email does not exit!')
+
+    def check_password(self, field):
+        if User.query.filter_by(password_hash=field.data).first():
+            raise ValidationError('Wrong password!')
+
 class RegistrationForm(FlaskForm):
     email = StringField('Email',validators=[DataRequired(),Email()])
     username = StringField('UserName',validators=[DataRequired(),  Length(min=2, max=20)])
