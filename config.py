@@ -17,5 +17,13 @@ class Config(object):
     S3_SECRET = os.environ.get('S3_SECRET_ACCESS_KEY')
     S3_LOCATION = 'http://{}.s3.eu-west-2.amazonaws.com/'.format(S3_BUCKET)
     #ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+    ######################################################################
+    MAIL_SERVER = os.environ.get('MAIL_SERVER')
+    MAIL_PORT = int(os.environ.get('MAIL_PORT') or 25)
+    MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    ADMINS = ['r.bhadauria7@gmail.com']
+    ###########################################################
 
  
