@@ -38,7 +38,7 @@
             <div class="carousel-caption d-none d-sm-block text-center mb-5">
               <h1 class="display-3 text-secondary"> Raj Recipe World</h1>
               <p class="lead text-danger"> Food Lover's Blog To Share The Recipe </p>
-              <a href="contact.html" class="btn btn-danger btn-lg">Sign Up Free</a>
+              <a href="{{ url_for('users.register') }}" class="btn btn-danger btn-lg">Sign Up Free</a>
             </div>
           </div>
         </div>
@@ -46,9 +46,11 @@
         <div class="carousel-item carousel-image-2">
           <div class="container">
             <div class="carousel-caption d-none d-sm-block mb-5">
-             <h1 class="display-3 text-secondary"> Raj Recipe World</h1>
-              <p class="lead text-danger"> Food Lover's Blog To Share The Recipe </p>
-              <a href="contact.html" class="btn btn-primary btn-lg">Sign Up Now</a>
+             <h1 class="display-3 text-danger"> Raj Recipe World</h1>
+              <span class="lead text-white bg-dark py-0"> Food Lover's Blog To Share The Recipe </span>
+              <div class="py-4">
+              <a href="{{ url_for('users.register') }}" class="btn btn-primary btn-lg">Register to Share</a>
+              </div>
             </div>
           </div>
         </div>
@@ -56,9 +58,9 @@
         <div class="carousel-item carousel-image-3">
           <div class="container">
             <div class="carousel-caption d-none d-sm-block text-right mb-5">
-             <h1 class="display-3 text-secondary"> Raj Recipe World</h1>
-              <p class="lead text-danger"> Food Lover's Blog To Share The Recipe </p>
-              <a href="about.html" class="btn btn-success btn-lg">Learn More</a>
+             <h1 class="display-3 text-primary"> Raj Recipe World</h1>
+              <p class="lead text-sucessy"> Food Lover's Blog To Share The Recipe </p>
+              <a href="{{ url_for('users.register') }}" class="btn btn-success btn-lg">Register today</a>
             </div>
           </div>
         </div>

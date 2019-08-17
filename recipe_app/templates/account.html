@@ -28,15 +28,15 @@
 <!-- Error Flash Message End -->
 
 
-<div class="jumbotron">
+<div class="py-1" style="height: 320px;">
   
   <div align='center'>
-    <h1 >Welcome to the page for {{current_user.username}}</h1>
+    <h2> Welcome to the page for {{current_user.username}} </h2>
 
-    <img align='center' src="{{(current_user.picture)}}"> 
+    <img class="img-fluid rounded-circle" align='center' style="height: 180px;" src="{{(current_user.picture)}}"> 
 
 
-    <p>{{ current_user.email }}</p>
+    <p> <h5>{{ current_user.email }} <h5></p>
   </div>
   
 </div>

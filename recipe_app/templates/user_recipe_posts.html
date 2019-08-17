@@ -2,11 +2,11 @@
 {% block content %}
 
 <!-- -->
-  <div class="jumbotron">
+  <div class="py-1" style="height: 320px;">
     <div align='center'>
-      <h1 >Welcome to the page for {{user.username}}</h1>
+      <h2 >Welcome to the page for {{user.username}}</h2>
 
-      <img align='center' src="{{ (user.picture) }}">
+      <img class="img-fluid rounded-circle" align='center' style="height: 180px;" src="{{ (user.picture) }}">
 
     </div>
   </div>

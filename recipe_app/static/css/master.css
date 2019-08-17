@@ -1,6 +1,16 @@
+
+
+
+
 .carousel-item {
-  height: 450px;
-}
+	height: 400px;
+    width: 100% !important;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
 
 .carousel-image-1 {
   background: url('../img/cook-3_1920.jpg');
