@@ -6,100 +6,11 @@
 
 <!-- Error Flash Message -->
 
-<div>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-  
-  {% if messages %}
-    {% for category, message in messages %}
-      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-       {{ message }}
-      </div>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
-
-</div>
-
-<!-- Error Flash Message End -->
-
-  <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
-
-  <section id="info" class="py-3">
-  <div class="container">
-    {# Go through each blog post #}
-
-    {% for recipe in all_recipies_posts.items %}
-
-    <div class="row">
-
-      <div class="col-md-9 align-self-center">
-
-        <h3> <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id=recipe.id) }}">{{ recipe.recipe_name }}</a> </h3>
-
-          <p>
-
-            Written by: <a href="{{ url_for('users.user_recipies', username = recipe.author.username) }}">{{ recipe.author.username }}</a>
-
-            <br/>
-
-            Published on: {{ recipe.date.strftime('%Y-%m-%d') }}
-            <br/>
-
-            {{ recipe.recipe_description[:100] }}...
-
-            </p>
-
-              <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id=recipe.id) }}" class="btn btn-outline-danger btn-lg">Read more</a>
-
-              <hr>
-               <br/>
-                
-
-          </div>
-
-            <div class="col-md-3">
-              <a href="{{ url_for('recipe_posts.recipe_post', recipe_post_id = recipe.id) }}"> <img src="{{recipe.recipe_image}}" alt="" class="img-fluid"> </a>
-             </div>
-
-           </div>
-
-           {% endfor %}
-  </div> <!-- container -->
-</section>
 
 
+<h1> hi </h1>
 
-<!-- -->   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-
-    {# http://flask.pocoo.org/snippets/44/ #}
-
-    {% for page_num in all_recipies_posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-
-            {% if all_recipies_posts.page == page_num %}
-
-              <li class="page-item disabled">
-
-                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a>
-
-              </li>
-             
-
-            {% else %}
-
-              <li class="page-item"> 
-
-                <a class="page-link" href="{{ url_for('core.index', page=page_num) }}">{{ page_num }}</a>
-
-              </li>
-            {% endif %}
-
-    {% endfor %}
-  </ul>
-</nav>
  <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
 
 
@@ -128,3 +39,5 @@
 
 
   <!-- --> <!-- --> <!--   --> <!-- --> <!-- --> <!-- --> <!-- -->
+
+  {% endblock content %}

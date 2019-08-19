@@ -41,7 +41,12 @@
 
 
 
-         <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ml-auto">
+
+      <form class="form-inline my-2 my-lg-0" method="GET" action="{{ url_for('search.search_result') }}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-light bg-danger my-2 my-sm-0" type="submit">Search</button>
+      </form>
 
             <li class="nav-item active">
               <a class="nav-link text-white" href="{{ url_for('core.index') }}">
@@ -80,17 +85,16 @@
               </li>
 
 
+
+ 
+
               {% else %}
 
               <li class="nav-item">
                   <a class="nav-link text-white" href="{{ url_for('users.login') }}"> <i class="fas fa-sign-in-alt icon-nav"></i> Log In </a>
               </li>
 
-              <!--
-              <li class="nav-item">
-                  <a class="nav-link text-white btn btn-info btn-md" href="{{ url_for('users.register') }}"> <span class="glyphicon glyphicon-text-background"></span> Register </a>
-              </li>
-              -->
+
               
               <li class="nav-item">
 

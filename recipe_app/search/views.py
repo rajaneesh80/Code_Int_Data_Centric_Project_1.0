@@ -19,6 +19,10 @@ search = Blueprint('search', __name__)
 
 ###########  Blue end ################
 
+@search.route('/search', methods=['GET','POST'])
+def search_result():
+	
+	return render_template('search.html',)
 
 
 
