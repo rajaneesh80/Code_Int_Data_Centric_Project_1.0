@@ -38,7 +38,7 @@ def register():
 
         except IntegrityError:
             db.session.rollback()
-            flash(f'either email {form.email.data} or username {form.username.data} alredy taken : !', 'danger')
+            flash(f'either email {form.email.data} or username {form.username.data} already taken : !', 'danger')
             
 
     return render_template('register.html', form=form)
@@ -87,6 +87,7 @@ def account():
     form = UpdateUserForm()
 
     if form.validate_on_submit():
+
         ####################################################################
         if form.picture.has_file():
 
@@ -97,28 +98,34 @@ def account():
             image_url       = str(output)
             ###########################
 
-            #image_url = fhotos.url(fhotos.save(form.picture.data))
-            #current_user.picture = image_url
+
             if current_user.picture is not None and current_user.picture != image_url:
                 flash("User picture updated")
             current_user.picture = image_url
+
         else:
             image_url = current_user.picture
-        ##############################################################
-        
-        if current_user.username is not None and current_user.username != form.username.data:
-            flash("User name updated")
-        current_user.username = form.username.data
-        
-        ##############################################################
-        #current_user.email = form.email.data
-        if current_user.email is not None and current_user.email != form.email.data:
-            flash("User email updated")
-        current_user.email = form.email.data
 
         ##############################################################
-        db.session.commit()
-        flash('User Account Updated')
+        try:
+            if current_user.username is not None and current_user.username != form.username.data:
+                #flash("User name updated")
+                current_user.username = form.username.data
+            
+            ##############################################################
+            
+            if current_user.email is not None and current_user.email != form.email.data:
+                #flash("User email updated")
+                current_user.email = form.email.data
+
+            ##############################################################
+            db.session.commit()
+
+        except IntegrityError:
+            db.session.rollback()
+            flash(f'either email {form.email.data} or username {form.username.data} already taken : !', 'danger')
+
+        
         return redirect(url_for('users.account'))
         ##############################################################
 
@@ -128,7 +135,7 @@ def account():
     return render_template('account.html', form=form)
 
 
-# gt all the recipe of user
+# get all the recipe of user
 
 @users.route("/<username>")
 def user_recipies(username):
