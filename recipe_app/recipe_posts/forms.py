@@ -4,13 +4,11 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired
 from flask_wtf.file import FileField, FileAllowed, FileRequired
-#from recipe_app import photos
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-#from werkzeug import secure_filename, FileStorage
+
 
 class RecipePostForm(FlaskForm):
-    # no empty titles or text possible
-    # we'll grab the date automatically from the Model later
+   
 
     ###############################################################
     recipe_image = FileField('Uplod_Recipe_Image', validators=[FileAllowed(IMAGES, 'Images only!')])
@@ -30,3 +28,5 @@ class RecipePostForm(FlaskForm):
     ingredients = TextAreaField('Ingredients', validators=[DataRequired()])
     recipe_description = TextAreaField('Recipe_Description', validators=[DataRequired()])
     submit = SubmitField('Post-Your-Receipe')
+
+#########################################

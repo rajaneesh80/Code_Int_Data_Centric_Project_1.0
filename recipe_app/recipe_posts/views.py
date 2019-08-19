@@ -4,7 +4,7 @@ from flask import render_template,url_for,flash, redirect,request,Blueprint
 from flask_login import current_user, login_required
 from recipe_app import db
 from recipe_app import app
-#from recipe_app import photos
+
 from recipe_app.models import RecipePost
 from recipe_app.recipe_posts.forms import RecipePostForm
 from werkzeug import FileStorage
@@ -29,14 +29,6 @@ def create_recipe():
 
         ##################################
 
-
-
-
-        #########################
-        #filename = photos.save(request.files['recipe_image'])
-        #image_url = photos.url(photos.save(form.recipe_image.data))
-        #image_url = photos.url('https://s3.console.aws.amazon.com/s3/buckets/rajecom/recipe_images')
-        ############################
         recipe_post = RecipePost(recipe_image = image_url,
                              ########################
                              recipe_name=form.recipe_name.data,
@@ -54,13 +46,13 @@ def create_recipe():
                              )
         db.session.add(recipe_post)
         db.session.commit()
-        flash("Recipe Post Created")
+        flash("Recipe Post Created", 'success')
         return redirect(url_for('core.index'))
 
     return render_template('create_recipe.html',form=form)
 
 
-# int: makes sure that the recipe_post_id gets passed as in integer
+# int: recipe_post_id gets passed as in integer
 # instead of a string so we can look it up later.
 
 #read or view the Single Recipe Details
@@ -115,9 +107,9 @@ def update(recipe_post_id):
         recipe_post.recipe_description = form.recipe_description.data
 
         db.session.commit()
-        flash('Recipe Updated')
+        flash(f'Recipe Updated!', 'success')
         return redirect(url_for('recipe_posts.recipe_post', recipe_post_id=recipe_post.id))
-
+        
     # Pass back the old recipe post information so they can start again with
     # the old text and title.
 
@@ -148,5 +140,8 @@ def delete_recipe(recipe_post_id):
         abort(403)
     db.session.delete(recipe_post)
     db.session.commit()
-    flash('Recipe has been deleted')
+    flash(f'Recipe Deleted!', 'danger')
     return redirect(url_for('core.index'))
+
+
+######################################################################################

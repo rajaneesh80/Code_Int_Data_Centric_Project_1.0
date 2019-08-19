@@ -38,6 +38,9 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
 
+
+
+
          <ul class="navbar-nav ml-auto">
 
             <li class="nav-item active">
@@ -50,9 +53,13 @@
               <a class="nav-link text-white" href="{{ url_for('core.info') }}"> <i class="fas fa-users icon-nav"></i> About Us</a>
             </li>
 
+
+
         <!-- -->
 
             {% if current_user.is_authenticated %}
+
+
 
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ url_for('users.logout') }}"> <i class="fas fa-sign-out-alt icon-nav"></i> Log Out </a>
@@ -93,12 +100,29 @@
 
               </li>
 
+
+
               {% endif %}
 
     </ul>
+               
+         
 
+    
+        
+             
     </div>
+
+
+
+       
+
    </div>
+
+           
+  
+        
+
   </nav>
 
  </header>

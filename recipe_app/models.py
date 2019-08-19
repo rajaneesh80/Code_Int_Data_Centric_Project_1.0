@@ -7,13 +7,15 @@ from time import time
 from hashlib import md5
 import jwt
 
-
 # The user_loader decorator allows flask-login to load the current user
 # and grab their id.
 
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(user_id)
+
+
+############################# USER MODEL  ##############################
 
 class User(db.Model, UserMixin):
 
@@ -33,7 +35,6 @@ class User(db.Model, UserMixin):
      def __init__(self, email, username, password):
          self.email = email
          self.username = username
-         #self.picture = picture
          self.password_hash = generate_password_hash(password)
 
      def check_password(self,password):
@@ -60,14 +61,18 @@ class User(db.Model, UserMixin):
      def __repr__(self):
         return f"UserName: {self.username}"
 
-#####################################################################
+############################ USER MODEL END #########################################
 
+
+############################ ADD A RECIPE MODEL  #########################################
 class RecipePost(db.Model):
+    # Search
+    __searchable__ = ['recipe_name']
     # Setup the relationship to the User table
     users = db.relationship(User)
     # Model for the Recipe Posts on Website
     id = db.Column(db.Integer, primary_key=True)
-    # Notice how we connect the Recipe Posts to a particular author
+    # we connect the Recipe Posts to a particular author
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     ##############################################################################
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
@@ -110,6 +115,6 @@ class RecipePost(db.Model):
     def __repr__(self):
          return f"Recipe Id: {self.id} --- Date: {self.date} --- Title: {self.recipe_name}"
 
-
-################# ########################## ######################################
+############################ ADD A RECIPE MODEL  END #########################################
+################################################################################################
 

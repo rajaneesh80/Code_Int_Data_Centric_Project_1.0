@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+
+
+<div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+</div>
+<!-- Error Flash Message End -->
+
 <div class="container">
   <form class="form-group" method="POST" action="" enctype="multipart/form-data">
      {{ form.hidden_tag() }}

@@ -25,7 +25,6 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = ['r.bhadauria7@gmail.com']
     ###########################################################
-###############################################################################
 
 
  

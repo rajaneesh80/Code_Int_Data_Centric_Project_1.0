@@ -1,4 +1,5 @@
 #user views
+from sqlalchemy.exc import IntegrityError
 from flask import render_template, url_for, flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from recipe_app import db
@@ -24,15 +25,21 @@ def register():
     form = RegistrationForm()
 
     if form.validate_on_submit():
-        user = User(email=form.email.data,
-                    username=form.username.data,
-                    password=form.password.data
-                    )
+        try:
+            user = User(email=form.email.data,
+                        username=form.username.data,
+                        password=form.password.data
+                        )
 
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('users.login'))
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Account created for {form.username.data}!', 'success')
+            return redirect(url_for('users.login'))
+
+        except IntegrityError:
+            db.session.rollback()
+            flash(f'either email {form.email.data} or username {form.username.data} alredy taken : !', 'danger')
+            
 
     return render_template('register.html', form=form)
 
