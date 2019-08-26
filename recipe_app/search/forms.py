@@ -1,5 +1,4 @@
-#user form
-#reated to form
+#Search  form
 from flask import request
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
@@ -16,7 +15,7 @@ from recipe_app.models import RecipePost, User
 #### Search Form start ###############################################
 
 class SearchForm(FlaskForm):
-	search = StringField('search', validators=[DataRequired()])
+	searchRecipe = StringField('Search', validators=[DataRequired()])
 
 
 #### Search Form end  ##############################################
