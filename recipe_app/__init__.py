@@ -16,6 +16,30 @@ app = Flask(__name__)
 
 app.config.from_object(Config)
 
+##################
+
+# db = SQLAlchemy()
+# migrate = Migrate()
+# login = LoginManager()
+# login.login_view = 'auth.login'
+# #login.login_message = _l('Please log in to access this page.')
+# mail = Mail()
+
+######################################
+
+######################################
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login.init_app(app)
+    mail.init_app(app)
+    return app
+
+########################
+
 
 ### DATABASE SETUPS ############
 
@@ -30,6 +54,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app,db)
 
+migrate = Migrate()
+
 #### LOGIN CONFIGS #######
 
 login_manager = LoginManager()
@@ -40,10 +66,23 @@ login_manager.init_app(app)
 # Tell users what view to go to when they need to login.
 login_manager.login_view = "users.login"
 
+# login = LoginManager()
+
 #### email support #######
 mail = Mail(app)
 
 ######################################
+
+def create_app(config_class=Config):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+    db.init_app(app)
+    migrate.init_app(app, db)
+    login_manager.init_app(app)
+    mail.init_app(app)
+    return app
+
+########################
 
 
 #### BLUEPRINT CONFIGS STARTS #######
