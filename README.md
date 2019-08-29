@@ -1,7 +1,7 @@
 <hr>
 <h2> Raj_Recipe_Cook_Book_Web_App </h2>
 <hr>
-Raj Recipe Cook Book Web_App is a responsive multi-pages scoal cooking blog app where user can post and read the cooking recipies.
+Raj Recipe Cook Book Web_App is a responsive multi-pages scoal cooking blog app where user can store and read the cooking recipies.
 
 <h2> Overview </h2>
 
@@ -18,18 +18,20 @@ This website was created with the intention to store and share recipes with othe
 
 <ul>
 
-<li> Create new recipes - recipe name, category, level of difficulty, servings, preparation time, method etc, </li>
-<li> Read all the recipes </li>
-<li> Edit own recipes </li>
-<li> Delete own recipes </li>
-<li> Vistor can only read the recipes </li>
-<li> to post a recipe visitor must sign up </li>
+<li> Create new recipies - recipe name, category, servings, preparation time, cooking method etc, </li>
+<li> Read all the recipies </li>
+<li> Edit own recipies </li>
+<li> Delete own recipies </li>
+<li> Vistor can only read the recipies </li>
+<li> To post a recipe visitor must sign up </li>
+<li> User can see all his or her recipies on one place after login under UserName: Nav-link </li>
+<li> User can update Profile picture and other info after login under Profile: Nav-link </li>
 
 </ul>
 
 </p>
 
-<p> A demo of this site is available <a href="" rel="nofollow"> here </a>.</p>
+<p> A demo of this site is available <a href=" https://raj-recipe-world.herokuapp.com/" rel="nofollow"> here </a>.</p>
 <hr>
 
 <div>
@@ -61,7 +63,7 @@ Scale the app's web process to 1 dyno: heroku ps:scale web=1
 git remote add https://git.heroku.com/cookbook-app-flask.git
 git push heroku master
 
-<li> A demo of this site is available <a href="" rel="nofollow"> here </a>. </li>
+<li> A demo of this site is available <a href=" https://raj-recipe-world.herokuapp.com/" rel="nofollow"> here </a>. </li>
 
 </ul>
 </p>
@@ -73,6 +75,7 @@ git push heroku master
 <h3> Built With </h3>
 
 Python Flask-Python microframework Sqlite SQL database
+AWS - S3 to store imaegs
 HTML5, CSS3 and JavaScript
 Bootstrap CSS framework to style and create responsive design
 other Front end languages that give the application structure, style and interactivity
@@ -142,6 +145,9 @@ other Front end languages that give the application structure, style and interac
 
 </li>
 
+<ul>
+<li>The project uses <strong> AWS - S3 to store imaegs </strong> to store the imaegs.</li>
+</ul>
 
 
 
