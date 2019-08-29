@@ -146,8 +146,10 @@ other Front end languages that give the application structure, style and interac
 
 </li>
 
+<li> <a href="https://signin.aws.amazon.com/signin" rel="nofollow"> AWS /</a>
+
 <ul>
-<li>The project uses <strong> AWS - S3 to store imaegs </strong> to store the imaegs.</li>
+<li>The project uses <strong> AWS - S3 </strong> to store the imaegs.</li>
 </ul>
 
 
@@ -187,6 +189,18 @@ Rajaneesh Singh Bhadauria - This project was completed as part of Code Institute
 
 </ul>
 
+<h2> Content </h2> 
+
+<ul>
+
+<li>
+	
+The content for recipes was taken from the <a href="https://food.ndtv.com" rel="nofollow"> NDTV recipes website</a>
+
+</li>
+
+</ul>
+
 <h2> Acknowledgements </h2> 
 
 <ul>
@@ -194,6 +208,7 @@ Rajaneesh Singh Bhadauria - This project was completed as part of Code Institute
 <li> I don't cook much at home inspired me to make a tool to remeber the recipies </li>
 
 </ul>
+
 
 
 
