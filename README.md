@@ -64,10 +64,12 @@ Scale the app's web process to 1 dyno: heroku ps:scale web=1
 git remote add https://git.heroku.com/cookbook-app-flask.git
 git push heroku master
 
-<li> <h4> A demo of this site is available:- <a href="https://raj-recipe-world.herokuapp.com/" rel="nofollow">here</a> </h4> </li>
+<h4> A demo of this site is available:- <a href="https://raj-recipe-world.herokuapp.com/" rel="nofollow">here</a> </h4>
 
 </ul>
+
 </p>
+
 </div>
 
 <hr>
@@ -146,7 +148,7 @@ other Front end languages that give the application structure, style and interac
 
 </li>
 
-<li> <a href="https://signin.aws.amazon.com/signin" rel="nofollow"> AWS /</a>
+<li> <a href="https://signin.aws.amazon.com/" rel="nofollow"> AWS /</a>
 
 <ul>
 <li>The project uses <strong> AWS - S3 </strong> to store the imaegs.</li>
@@ -194,7 +196,7 @@ Rajaneesh Singh Bhadauria - This project was completed as part of Code Institute
 <ul>
 
 <li>
-	
+
 The content for recipes was taken from the <a href="https://food.ndtv.com" rel="nofollow"> NDTV recipes website</a>
 
 </li>
