@@ -31,7 +31,7 @@ This website was created with the intention to store and share recipes with othe
 
 </p>
 
-<h3> A demo of this site is available <a href="https://raj-recipe-world.herokuapp.com/" rel="nofollow">here</a> </h3> 
+<h3> A demo of this site is available:- <a href="https://raj-recipe-world.herokuapp.com/" rel="nofollow">here</a> </h3> 
 
 <hr>
 
@@ -64,7 +64,7 @@ Scale the app's web process to 1 dyno: heroku ps:scale web=1
 git remote add https://git.heroku.com/cookbook-app-flask.git
 git push heroku master
 
-<li> A demo of this site is available <a href=" https://raj-recipe-world.herokuapp.com/" rel="nofollow"> here </a>. </li>
+<li> <h4> A demo of this site is available:- <a href="https://raj-recipe-world.herokuapp.com/" rel="nofollow">here</a> </h4> </li>
 
 </ul>
 </p>
