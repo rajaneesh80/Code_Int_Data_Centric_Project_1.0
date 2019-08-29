@@ -18,29 +18,6 @@ app.config.from_object(Config)
 
 ##################
 
-# db = SQLAlchemy()
-# migrate = Migrate()
-# login = LoginManager()
-# login.login_view = 'auth.login'
-# #login.login_message = _l('Please log in to access this page.')
-# mail = Mail()
-
-######################################
-
-######################################
-
-def create_app(config_class=Config):
-    app = Flask(__name__)
-    app.config.from_object(config_class)
-    db.init_app(app)
-    migrate.init_app(app, db)
-    login.init_app(app)
-    mail.init_app(app)
-    return app
-
-########################
-
-
 ### DATABASE SETUPS ############
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -91,14 +68,15 @@ from recipe_app.core.views import core
 from recipe_app.error_pages.handlers import error_pages
 from recipe_app.users.views import users
 from recipe_app.recipe_posts.views import recipe_posts
-from recipe_app.search.views import search
+
 
 # Register the apps
+
 app.register_blueprint(core)
 app.register_blueprint(error_pages)
 app.register_blueprint(users)
 app.register_blueprint(recipe_posts)
-app.register_blueprint(search)
+
 
 #### BLUEPRINT CONFIGS END #######
 
