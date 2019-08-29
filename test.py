@@ -1,9 +1,15 @@
 from datetime import datetime, timedelta
 import unittest
+
 #from recipe_app import app, db
 from recipe_app import create_app, db
 from recipe_app.models import User, RecipePost
+from flask_login import login_user, current_user, logout_user, login_required
+from recipe_app.users.views import register, login, logout, account, user_recipies, \
+    reset_password_request, reset_password
+
 from config import Config
+
 
 
 class TestConfig(Config):
@@ -11,7 +17,7 @@ class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
     ELASTICSEARCH_URL = None
 
-
+############################################################
 class UserModelCase(unittest.TestCase):
     def setUp(self):
         self.app = create_app(TestConfig)
@@ -30,7 +36,6 @@ class UserModelCase(unittest.TestCase):
         self.assertFalse(u.check_password('dog'))
         self.assertTrue(u.check_password('cat'))
 
-    
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
