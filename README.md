@@ -31,7 +31,7 @@ This website was created with the intention to store and share recipes with othe
 
 </p>
 
-<p> A demo of this site is available <a href=" https://raj-recipe-world.herokuapp.com/" rel="nofollow"> here </a>.</p>
+<p> A demo of this site is available:- <a href=" https://raj-recipe-world.herokuapp.com/" rel="">  </a> here </p>
 <hr>
 
 <div>
