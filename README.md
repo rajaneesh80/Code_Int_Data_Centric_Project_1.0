@@ -1,7 +1,7 @@
 <hr>
 <h2> Raj_Recipe_Cook_Book_Web_App </h2>
 <hr>
-Raj Recipe Cook Book Web_App is a responsive multi-pages scoal cooking blog app where user can store and read the cooking recipies.
+Raj Recipe Cook Book Web_App is a responsive multi-pages scoal cooking blog app where user can store, read and share the cooking recipies.
 
 <h2> Overview </h2>
 
@@ -14,7 +14,7 @@ This website was created with the intention to store and share recipes with othe
 <h2> Features <h2> 
 <p>
  
-<h3> It is a fully functional user based social website that provides registered user:-  </h3>
+<h3> It is a fully functional user based social recipe website that provides registered user:-  </h3>
 
 <ul>
 
@@ -24,7 +24,7 @@ This website was created with the intention to store and share recipes with othe
 <li> Delete own recipies </li>
 <li> Vistor can only read the recipies </li>
 <li> To post a recipe visitor must sign up </li>
-<li> User can see all his or her recipies on one place after login under UserName: Nav-link </li>
+<li> User can see all his or her recipies in one place after login under UserName: Nav-link </li>
 <li> User can update Profile picture and other info after login under Profile: Nav-link </li>
 
 </ul>
