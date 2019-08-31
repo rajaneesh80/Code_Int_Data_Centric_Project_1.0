@@ -91,7 +91,7 @@ other Front end languages that give the application structure, style and interac
 </ul>
 </li>
 
-<li><a href="https://pypi.org/project/Flask/" rel="nofollow">Flask-Version 1.1.0</a>
+<li><a href="https://pypi.org/project/Flask/" rel="nofollow">Flask-Version 1.1.1</a>
 <ul>
 <li>The project uses <strong>Flask</strong> for backend development.</li>
 </ul>
