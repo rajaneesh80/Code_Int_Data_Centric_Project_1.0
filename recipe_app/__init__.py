@@ -43,8 +43,6 @@ login_manager.init_app(app)
 # Tell users what view to go to when they need to login.
 login_manager.login_view = "users.login"
 
-# login = LoginManager()
-
 #### email support #######
 mail = Mail(app)
 

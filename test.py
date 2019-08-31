@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 import unittest
 
-#from recipe_app import app, db
+
 from recipe_app import create_app, db
 from recipe_app.models import User, RecipePost
 from flask_login import login_user, current_user, logout_user, login_required

@@ -9,17 +9,17 @@
   }
 
 .carousel-image-1 {
-  background: url('../img/cook-3_1920.jpg');
+  background: url('https://rajecom.s3.eu-west-2.amazonaws.com/cook-3_1920.jpg');
   background-size: cover;
 }
 
 .carousel-image-2 {
-  background: url('../img/bell-pepper-1_1920.jpg');
+  background: url('https://rajecom.s3.eu-west-2.amazonaws.com/bell-pepper-1_1920.jpg');
   background-size: cover;
 }
 
 .carousel-image-3 {
-  background: url('../img/shish-kebab-3_1920.jpg');
+  background: url('https://rajecom.s3.eu-west-2.amazonaws.com/shish-kebab-3_1920.jpg');
   background-size: cover;
 }
 

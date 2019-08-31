@@ -85,7 +85,7 @@ def update(recipe_post_id):
             image_url       = str(output)
             ###########################
             
-            #image_url = photos.url(photos.save(form.recipe_image.data))
+            
             recipe_post.recipe_image = image_url
         else:
             image_url = recipe_post.recipe_image

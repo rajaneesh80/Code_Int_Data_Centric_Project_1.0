@@ -12,7 +12,7 @@ class RecipePostForm(FlaskForm):
 
     ###############################################################
     recipe_image = FileField('Uplod_Recipe_Image', validators=[FileAllowed(IMAGES, 'Images only!')])
-    #recipe_image_url = StringField('Recipe_Name_Url', validators=[DataRequired()])
+    
     ########################################################################
 
     recipe_name = StringField('Recipe_Name', validators=[DataRequired()])
